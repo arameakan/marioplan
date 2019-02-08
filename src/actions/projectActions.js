@@ -1,5 +1,5 @@
 export const createProject = project => {
-  return (dispatch, getState, { getFirebase, getFirestore }) => {
+  return (dispatch, getState, { getFirestore }) => {
     // make async call to database
     const firestore = getFirestore();
     const profile = getState().firebase.profile;
@@ -8,9 +8,9 @@ export const createProject = project => {
       .collection("projects")
       .add({
         ...project,
-        authorFistName: profile.firstName,
+        authorFirstName: profile.firstName,
         authorLastName: profile.lastName,
-        authorId,
+        authorId: authorId,
         createdAt: new Date()
       })
       .then(() => {

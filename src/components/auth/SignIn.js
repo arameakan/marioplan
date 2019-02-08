@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { signIn } from "../../actions/authActions";
+import { signIn } from "../../actions/Actions";
 import { Redirect } from "react-router-dom";
 
 class SignIn extends Component {

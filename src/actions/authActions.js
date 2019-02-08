@@ -1,5 +1,5 @@
 export const signIn = credentials => {
-  return (dispatch, getState, { getFirebase, getFirestore }) => {
+  return (dispatch, { getFirebase }) => {
     const firebase = getFirebase();
 
     firebase
@@ -15,7 +15,7 @@ export const signIn = credentials => {
 };
 
 export const signOut = () => {
-  return (dispatch, getState, { getFirebase }) => {
+  return (dispatch, { getFirebase }) => {
     const firebase = getFirebase();
 
     firebase
@@ -25,7 +25,7 @@ export const signOut = () => {
         dispatch({ type: "SIGNOUT_SUCCESS" });
       })
       .catch(err => {
-        dispatch({ type: "SIGNOUT_ERROR " });
+        dispatch({ type: "SIGNOUT_ERROR ", err });
       });
   };
 };
